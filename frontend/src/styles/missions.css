@@ -1,0 +1,174 @@
+.missions-page,
+.details-page,
+.delete-page {
+  display: grid;
+  gap: 2rem;
+}
+
+.mission-toolbar {
+  align-items: end;
+  padding: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.toolbar-field {
+  display: grid;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 240px;
+}
+
+.toolbar-field span {
+  color: #cfe0ff;
+  font-weight: 700;
+}
+
+.toolbar-field input,
+.toolbar-field select {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #eef6ff;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+}
+
+.mission-count {
+  min-width: 180px;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+}
+
+.mission-card {
+  padding: 1.4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.mission-card h3,
+.mission-details-card h2,
+.delete-card h2 {
+  margin: 0;
+}
+
+.mission-card p,
+.mission-details-card p,
+.delete-card p {
+  margin: 0;
+  color: #c2d6f7;
+}
+
+.difficulty-badge,
+.status-badge,
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.difficulty-badge.beginner {
+  background: rgba(119, 242, 107, 0.14);
+  color: #c4ffb8;
+}
+
+.difficulty-badge.intermediate {
+  background: rgba(103, 197, 255, 0.14);
+  color: #b6e8ff;
+}
+
+.difficulty-badge.advanced {
+  background: rgba(255, 184, 77, 0.16);
+  color: #ffd69a;
+}
+
+.status-badge.completed {
+  background: rgba(73, 230, 200, 0.14);
+  color: #abffef;
+}
+
+.status-badge.pending {
+  background: rgba(255, 108, 134, 0.14);
+  color: #ffc4cf;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.tag-pill {
+  background: rgba(255, 255, 255, 0.07);
+  color: #dfebff;
+}
+
+.mission-stats strong {
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.mission-details-card,
+.delete-card {
+  padding: 1.8rem;
+  display: grid;
+  gap: 1.4rem;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.detail-box,
+.delete-preview p {
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.delete-preview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.delete-preview strong {
+  display: block;
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .details-grid,
+  .delete-preview {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .mission-card-top,
+  .mission-stats,
+  .details-top,
+  .mission-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .details-grid,
+  .delete-preview {
+    grid-template-columns: 1fr;
+  }
+}

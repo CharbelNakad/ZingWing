@@ -1,0 +1,39 @@
+.contact-page {
+  display: grid;
+  gap: 2rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 1.5rem;
+}
+
+.contact-panel,
+.contact-form {
+  padding: 1.6rem;
+}
+
+.contact-panel h2 {
+  margin-top: 0;
+}
+
+.contact-panel p {
+  color: #bfd2f8;
+}
+
+.contact-list {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+  color: #dce8ff;
+}
+
+.contact-list li + li {
+  margin-top: 0.6rem;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
