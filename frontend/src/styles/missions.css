@@ -19,17 +19,26 @@
 }
 
 .toolbar-field span {
-  color: #cfe0ff;
+  color: #f2f7ff;
   font-weight: 700;
 }
 
 .toolbar-field input,
 .toolbar-field select {
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
-  color: #eef6ff;
+  background: rgba(15, 26, 48, 0.92);
+  color: #f8fbff;
   padding: 0.85rem 1rem;
   border-radius: 14px;
+}
+
+.toolbar-field input::placeholder {
+  color: #a9bddf;
+}
+
+.toolbar-field select option {
+  background: #0f1a30;
+  color: #f8fbff;
 }
 
 .mission-count {
