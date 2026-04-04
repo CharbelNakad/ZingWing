@@ -4,7 +4,7 @@ function Footer() {
       <div className="footer page-section">
         <div>
           <h3>Zing Wing</h3>
-          <p>Gamified productivity for students, achievers, and future goal crushers.</p>
+          <p>Upcoming productivity app for students, achievers, and future goal crushers.</p>
         </div>
         <div className="footer-links">
           <span>PROTOTYPE for a future project</span>

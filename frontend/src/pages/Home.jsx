@@ -45,9 +45,9 @@ function Home() {
   ];
 
   const leaderboardData = [
-    { name: "Maya", rank: "Legendary", xp: 248 },
-    { name: "Noah", rank: "Elite", xp: 176 },
-    { name: "Lina", rank: "Rising", xp: 98 },
+    { name: "Maroun", rank: "Legendary", xp: 248 },
+    { name: "Kevin", rank: "Elite", xp: 176 },
+    { name: "Chris", rank: "Rising", xp: 98 },
   ];
 
   return (

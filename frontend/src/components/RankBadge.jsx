@@ -3,7 +3,7 @@ function RankBadge({ rank }) {
     <section className="rank-badge panel">
       <span className="label-text">Current Rank</span>
       <h2>{rank}</h2>
-      <p>Your streak is building a stronger Zing Wing profile every day.</p>
+      <p>Your streak is building a stronger profile every day.</p>
     </section>
   );
 }

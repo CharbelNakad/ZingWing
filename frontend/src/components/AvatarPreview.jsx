@@ -9,7 +9,7 @@ function AvatarPreview({ currentLevel, rank }) {
       </div>
 
       <div className="avatar-card">
-        <img src="/images/avatar-placeholder.svg" alt="Avatar placeholder" />
+        <img src="/images/avatar-placeholder.png" alt="Avatar placeholder" />
         <div>
           <h3>Level {currentLevel} Explorer</h3>
           <p>

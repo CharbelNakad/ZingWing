@@ -107,6 +107,22 @@
   color: #ffc4cf;
 }
 
+.status-button {
+  border: none;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+.status-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(255, 108, 134, 0.2);
+}
+
+.status-button:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
