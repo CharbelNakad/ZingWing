@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const missionsRoutes = require("./routes/missionsRoutes");
+const contactRoutes = require("./routes/contactRoutes");
 
 const app = express();
 const PORT = 5000;
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/missions", missionsRoutes);
+app.use("/contact", contactRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found." });

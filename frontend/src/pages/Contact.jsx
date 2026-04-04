@@ -11,6 +11,8 @@ function Contact() {
   const [formData, setFormData] = useState(initialContactState);
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
+  const [serverError, setServerError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -48,19 +50,52 @@ function Contact() {
     return validationErrors;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const validationErrors = validateContactForm();
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length > 0) {
       setSuccessMessage("");
+      setServerError("");
       return;
     }
 
-    setSuccessMessage("Your message was sent successfully. The Zing Wing team will reach out soon.");
-    setErrors({});
-    setFormData(initialContactState);
+    setIsSubmitting(true);
+    setServerError("");
+
+    try {
+      const response = await fetch("http://localhost:5000/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim(),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        const extraDetails = Array.isArray(data.errors) ? ` ${data.errors.join(" ")}` : "";
+        throw new Error((data.message || "Could not send your message.") + extraDetails);
+      }
+
+      setSuccessMessage(
+        "Your message was sent successfully"
+      );
+      setErrors({});
+      setFormData(initialContactState);
+    } catch (error) {
+      setSuccessMessage("");
+      setServerError(error.message || "Could not send your message.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -69,8 +104,7 @@ function Contact() {
         <span className="pill pill-secondary">Contact Us</span>
         <h1 className="section-heading">Let's hear what would power up your productivity.</h1>
         <p className="section-copy">
-          Questions, ideas, and class feedback are always welcome. This form is frontend-only, but
-          it shows the user experience a real Zing Wing contact page could have.
+          Questions, ideas, and class feedback are always welcome.
         </p>
       </div>
 
@@ -90,6 +124,7 @@ function Contact() {
 
         <form className="contact-form panel" onSubmit={handleSubmit}>
           {successMessage && <p className="message-box">{successMessage}</p>}
+          {serverError && <p className="error-text">{serverError}</p>}
 
           <label className="form-field">
             <span>Name</span>
@@ -120,8 +155,8 @@ function Contact() {
             {errors.message && <small>{errors.message}</small>}
           </label>
 
-          <button type="submit" className="btn btn-primary">
-            Send Message
+          <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+            {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>
